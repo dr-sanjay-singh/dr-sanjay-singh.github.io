@@ -57,6 +57,27 @@
   .pubs .t{font-size:15px;color:var(--ink)}.pubs .t a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(93,227,255,.4)}.pubs .t a:hover{color:var(--cyan)}.pubs a.doi{color:var(--cyan);text-decoration:none}.pubs a.doi:hover{text-decoration:underline}
   .pubs .j{font:400 12.5px/1.6 "IBM Plex Mono",monospace;color:var(--dim);margin-top:4px}
   .pubs .j b{color:var(--amber);font-weight:500}
+
+  .pubsec{max-width:900px}
+  .pub-h{font:700 clamp(34px,4.4vw,48px)/1.1 Inter,sans-serif;letter-spacing:-.02em;margin-bottom:22px}
+  .pub-search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;background:rgba(10,12,26,.7);backdrop-filter:blur(8px);padding:0 14px;margin-bottom:8px}
+  .pub-search svg{width:18px;height:18px;fill:none;stroke:var(--dim);stroke-width:2;flex:none}
+  .pub-search input{flex:1;background:none;border:0;color:var(--ink);font:16px Inter,sans-serif;padding:13px 0;outline:none}
+  .pub-search:focus-within{border-color:var(--cyan)}
+  .pub-sub{font:600 20px/1.3 Inter,sans-serif;margin:34px 0 14px;color:var(--ink)}
+  .publist{display:grid;gap:16px}
+  .pcard{border:1px solid var(--line);border-radius:14px;background:rgba(10,12,26,.62);backdrop-filter:blur(10px);padding:24px 28px}
+  .pcard h4{font:700 19px/1.4 Inter,sans-serif;color:var(--ink);margin-bottom:10px}
+  .pcard .au{font-size:14.5px;color:#c6cbe0;line-height:1.55}
+  .pcard .au .me{font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+  .pcard .jr{font-size:14.5px;color:#c6cbe0;margin-top:2px}
+  .pcard .jr i{font-style:italic}
+  .pcard .jr b{font-weight:700;color:var(--ink)}
+  .pcard .vp{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:8px 14px;border:1px solid rgba(255,255,255,.18);border-radius:8px;color:var(--ink);text-decoration:none;font:500 14px Inter,sans-serif;transition:border-color .2s,color .2s}
+  .pcard .vp:hover{border-color:var(--cyan);color:var(--cyan)}
+  .pcard .vp svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+  .pcard .tag{display:inline-block;margin-top:16px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;font:500 13px Inter,sans-serif;color:var(--dim)}
+  .pub-none{color:var(--dim);margin-top:16px}
   .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--cyan);padding-bottom:2px}
   .contact a:hover{color:var(--cyan)}
@@ -130,26 +151,14 @@
     </div>
   </section>
 
-  <section id="publications">
-    <div class="eyebrow reveal">Publications</div>
-    <h2 class="reveal">Patents</h2>
-    <ol class="pubs">
-      <li class="reveal"><div><div class="t">Stereoselective synthesis of novel α-carboline alkaloids</div><div class="j"><b>IOPA</b> N2024-21103076 · Parth Sevak, Manoj K. Pandey, Sanjay Singh*</div></div></li>
-      <li class="reveal"><div><div class="t">Asymmetric synthesis of highly substituted polycyclic amino penta-fulvenes</div><div class="j"><b>IOPA</b> 202311045944 · Sanjay Singh, Ravi P. Singh*</div></div></li>
-    </ol>
-    <h2 class="reveal" style="margin-top:56px">Journal Articles</h2>
-    <ol class="pubs">
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1126/sciadv.aeh7873" target="_blank" rel="noopener">Visible-light-mediated stereoselective construction of oxa-spiro bicyclohexanes via strain-release [2π + 2σ] cycloaddition</a></div><div class="j">Sanjay Singh, Changha Kim, Dongwoo Lee, Dongwook Kim, Sungwoo Hong*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1002/chem.202503316" target="_blank" rel="noopener">Catalytic asymmetric functionalization of 4-methylcoumarins: a vinylogous nucleophile perspective</a></div><div class="j">Sanjay Singh, Abhijeet Singh, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1039/D5GC00278H" target="_blank" rel="noopener">Green innovations in C–H bond functionalization: exploring homogeneous recyclable catalytic systems</a></div><div class="j">Dewal S. Deshmukh, Sanjay Singh, Kirtikumar C. Badgujar, Vivek T. Humne, Gajanan V. Korpe, Bhalchandra M. Bhanage*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1002/chem.202500671" target="_blank" rel="noopener">Unlocking thermodynamic enolate for kinetically controlled desymmetrizing vinylogous (4+1) carbospiroannulation</a></div><div class="j">Sanjay Singh, Abhijeet Singh, Rinu Pandya, Kumar Vanka, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1038/s41467-024-45346-4" target="_blank" rel="noopener">Desymmetric homologating annulation to access chiral pentafulvenes and their application in bioimaging</a></div><div class="j">Sanjay Singh, Ravi Saini, Akshay Joshi, Neetu Singh*, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1021/acs.joc.2c02142" target="_blank" rel="noopener">Enantioselective distal functionalization of 3-cyano-4-methylcoumarins through direct vinylogous conjugate addition to maleimides</a></div><div class="j">Sanjay Singh, Ravi Saini, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1002/asia.202300627" target="_blank" rel="noopener">Enamine/iminium-based dual organocatalytic approach for asymmetric synthesis</a></div><div class="j">Diksha Gambhir, Sanjay Singh, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1039/D1OB00140J" target="_blank" rel="noopener">Enantioselective vinylogous aldol reaction of acylphosphonates with 3-alkylidene oxindoles</a></div><div class="j">Manish K. Jaiswal, Sanjay Singh, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t"><a href="https://doi.org/10.1002/ejoc.202000835" target="_blank" rel="noopener">The vinylogous Michael addition of 3-alkylidene-2-oxindoles to β,γ-unsaturated α-keto esters by bifunctional cinchona alkaloids</a></div><div class="j">Manish K. Jaiswal, Rajesh Kumar, Sanjay Singh, Shailija Jain, Kumar Vanka, Ravi P. Singh*</div></div></li>
-      <li class="reveal"><div><div class="t">Stereoselective synthesis of 3-carboxamidecoumarins tethered α-trifluoromethyl styrenes</div><div class="j"><b>Submitted</b> · Sanjay Singh, Ravi P. Singh*</div></div></li>
-    </ol>
+  <section id="publications" class="pubsec">
+    <h2 class="pub-h reveal">Publications</h2>
+    <div class="pub-search reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pubq" type="search" placeholder="Search by title, author or journal..." aria-label="Search publications"></div>
+    <h3 class="pub-sub">Journal Articles</h3>
+    <div id="publist" class="publist"></div>
+    <h3 class="pub-sub">Patents</h3>
+    <div id="patlist" class="publist"></div>
+    <p id="pubnone" class="pub-none" hidden>No publications match your search.</p>
   </section>
 
   <section id="team" style="min-height:50vh">
@@ -171,6 +180,47 @@
 </main>
 <footer>© <span id="yr"></span> Dr. Sanjay Singh · Department of Chemistry, PDEU</footer>
 
+<script>
+{
+const ME='Singh, S.';
+const pubs=[
+ {n:null,t:'Stereoselective Synthesis of 3-Carboxamidecoumarins Tethered α-Trifluoromethyl Styrenes',a:['Singh, S.','Singh, R. P.*'],status:'Submitted'},
+ {n:9,t:'Visible-light-mediated stereoselective construction of oxa-spiro bicyclohexanes via strain-release [2π + 2σ] cycloaddition',a:['Singh, S.','Kim, C.','Lee, D.','Kim, D.','Hong, S.*'],j:'Sci. Adv.',y:2026,v:'12',pg:'eaeh7873',u:'https://doi.org/10.1126/sciadv.aeh7873'},
+ {n:8,t:'Catalytic Asymmetric Functionalization of 4-Methylcoumarins: A Vinylogous Nucleophile Perspective',a:['Singh, S.','Singh, A.','Singh, R. P.*'],j:'Chem. Eur. J.',y:2026,v:'32',pg:'e03316',u:'https://doi.org/10.1002/chem.202503316'},
+ {n:7,t:'Green innovations in C–H bond functionalisation: exploring homogeneous recyclable catalytic systems',a:['Deshmukh, D. S.','Singh, S.','Badgujar, K. C.','Humne, V. T.','Korpe, G. V.','Bhanage, B. M.*'],j:'Green Chem.',y:2025,v:'27',pg:'5667',u:'https://doi.org/10.1039/D5GC00278H'},
+ {n:6,t:'Unlocking Thermodynamic Enolate for Kinetically Controlled Desymmetrizing Vinylogous (4+1) Carbospiroannulation',a:['Singh, S.','Singh, A.','Pandya, R.','Vanka, K.','Singh, R. P.*'],j:'Chem. Eur. J.',y:2025,v:'31',pg:'e202500671',u:'https://doi.org/10.1002/chem.202500671'},
+ {n:5,t:'Desymmetric homologating annulation to access chiral pentafulvenes and their application in bioimaging',a:['Singh, S.','Saini, R.','Joshi, A.','Singh, N.*','Singh, R. P.*'],j:'Nat. Commun.',y:2024,v:'15',pg:'2101',u:'https://doi.org/10.1038/s41467-024-45346-4'},
+ {n:4,t:'Enantioselective Distal Functionalization of 3-Cyano-4-methylcoumarins through Direct Vinylogous Conjugate Addition to Maleimides',a:['Singh, S.','Saini, R.','Singh, R. P.*'],j:'J. Org. Chem.',y:2023,v:'88',pg:'7712',u:'https://doi.org/10.1021/acs.joc.2c02142'},
+ {n:3,t:'Enamine/Iminium-Based Dual Organocatalytic Systems for Asymmetric Catalysis and Synthesis',a:['Gambhir, D.','Singh, S.','Singh, R. P.*'],j:'Chem. Asian J.',y:2023,v:'18',pg:'e202300627',u:'https://doi.org/10.1002/asia.202300627'},
+ {n:2,t:'Enantioselective vinylogous aldol reaction of acylphosphonates with 3-alkylidene oxindoles',a:['Jaiswal, M. K.','Singh, S.','Singh, R. P.*'],j:'Org. Biomol. Chem.',y:2021,v:'19',pg:'7861',u:'https://doi.org/10.1039/D1OB00140J'},
+ {n:1,t:'The Vinylogous Michael Addition of 3-Alkylidene-2-oxindoles to β,γ-Unsaturated α-Keto Esters by Bifunctional Cinchona Alkaloids',a:['Jaiswal, M. K.','Kumar, R.','Singh, S.','Jain, S.','Vanka, K.','Singh, R. P.*'],j:'Eur. J. Org. Chem.',y:2020,pg:'5690',u:'https://doi.org/10.1002/ejoc.202000835'}
+];
+const pats=[
+ {n:'P2',t:'Stereoselective Synthesis of Novel α-Carboline Alkaloids',a:['Sevak, P.','Pandey, M. K.','Singh, S.*'],j:'Indian Patent Application (IOPA)',no:'N2024-21103076'},
+ {n:'P1',t:'Asymmetric Synthesis of Highly Substituted Polycyclic Amino Penta-Fulvenes',a:['Singh, S.','Singh, R. P.*'],j:'Indian Patent Application (IOPA)',no:'202311045944'}
+];
+const ext='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+const au=a=>a.map(x=>x.replace(/\*$/,'')===ME?`<span class="me">${x}</span>`:x).join('; ');
+const card=p=>{
+  const num=p.n!=null?`[${p.n}] `:'';
+  let jr='';
+  if(p.status) jr=`<div class="jr"><i>${p.status}</i></div>`;
+  else if(p.no) jr=`<div class="jr"><i>${p.j}</i> No. ${p.no}</div>`;
+  else jr=`<div class="jr"><i>${p.j}</i> <b>${p.y}</b>${p.v?`, <i>${p.v}</i>`:''}, ${p.pg}.</div>`;
+  const btn=p.u?`<a class="vp" href="${p.u}" target="_blank" rel="noopener">${ext}View Paper</a>`:(p.no?'<span class="tag">Patent</span>':'');
+  return `<article class="pcard" data-s="${(p.t+' '+p.a.join(' ')+' '+(p.j||'')+' '+(p.y||'')).toLowerCase().replace(/"/g,'')}"><h4>${num}${p.t}</h4><div class="au">${au(p.a)}</div>${jr}${btn}</article>`;
+};
+document.getElementById('publist').innerHTML=pubs.map(card).join('');
+document.getElementById('patlist').innerHTML=pats.map(card).join('');
+const q=document.getElementById('pubq');
+q.addEventListener('input',()=>{
+  const v=q.value.trim().toLowerCase(); let shown=0;
+  document.querySelectorAll('.pcard').forEach(c=>{const ok=!v||c.dataset.s.includes(v); c.hidden=!ok; if(ok) shown++;});
+  document.querySelectorAll('.pub-sub').forEach(h=>{const list=h.nextElementSibling; h.hidden=![...list.children].some(c=>!c.hidden);});
+  document.getElementById('pubnone').hidden=shown>0;
+});
+}
+</script>
 <script type="module">
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
