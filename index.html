@@ -4,549 +4,68 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dr. Sanjay Singh | Department of Chemistry, PDEU</title>
-<meta name="description" content="Dr. Sanjay Singh, Assistant Professor of Chemistry at PDEU, Gandhinagar. Drug discovery, sustainable synthesis, photoredox and asymmetric organocatalysis.">
+<meta name="description" content="Dr. Sanjay Singh, Assistant Professor of Chemistry at Pandit Deendayal Energy University, Gandhinagar. Asymmetric organocatalysis, photocatalysis and drug discovery.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#05060d; --ink:#e9ecf5; --dim:#8d93ab; --line:rgba(255,255,255,.09);
-    --blue:#4f7dff; --violet:#9b6bff; --cyan:#5de3ff; --amber:#ffb35c;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
-  #scene{position:fixed;inset:0;width:100vw;height:100vh;z-index:0;display:block}
-  .veil{position:fixed;inset:0;z-index:1;pointer-events:none;
-        background:radial-gradient(ellipse at 20% 50%,rgba(5,6,13,.0) 0%,rgba(5,6,13,.55) 70%),
-                   linear-gradient(90deg,rgba(5,6,13,.85) 0%,rgba(5,6,13,.35) 55%,rgba(5,6,13,0) 100%)}
-  main{position:relative;z-index:2}
-  nav{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;
-      padding:18px 6vw;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;
-      background:linear-gradient(180deg,rgba(5,6,13,.9),rgba(5,6,13,0))}
-  nav a{color:var(--dim);text-decoration:none;margin-left:26px;transition:color .2s}
-  nav a:hover{color:var(--ink)}
-  nav .mark{color:var(--ink);margin:0}
-  nav .mark span{color:var(--cyan)}
-  section{min-height:100vh;padding:120px 6vw 80px;display:flex;flex-direction:column;justify-content:center;max-width:780px}
-  .eyebrow{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:22px}
-  h1{font:300 clamp(44px,7vw,92px)/1.02 Fraunces,serif;letter-spacing:-.02em}
-  h1 em{font-style:italic;background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
-  h2{font:300 clamp(32px,4.4vw,54px)/1.1 Fraunces,serif;letter-spacing:-.01em;margin-bottom:28px}
-  .lede{font-size:clamp(17px,1.6vw,20px);color:#c6cbe0;max-width:600px;margin-top:28px}
-  .meta{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
-  .chip{font:500 12px/1 "IBM Plex Mono",monospace;padding:9px 13px;border:1px solid var(--line);border-radius:999px;color:var(--dim);background:rgba(255,255,255,.02);backdrop-filter:blur(6px)}
-  .scroll-hint{margin-top:64px;font:500 11px/1 "IBM Plex Mono",monospace;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
-  .scroll-hint::before{content:"";display:inline-block;width:40px;height:1px;background:var(--dim);vertical-align:middle;margin-right:12px}
-  p{color:#c6cbe0}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:10px}
-  .card{border:1px solid var(--line);border-radius:14px;padding:22px;background:rgba(10,12,26,.55);backdrop-filter:blur(10px)}
-  .card h3{font:500 15px/1.3 Inter,sans-serif;margin-bottom:8px}
-  .card p{font-size:14px;color:var(--dim)}
-  .card .k{font:500 11px/1 "IBM Plex Mono",monospace;color:var(--violet);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:block}
-  .timeline{list-style:none;border-left:1px solid var(--line);margin-top:6px}
-  .timeline li{position:relative;padding:0 0 30px 28px}
-  .timeline li::before{content:"";position:absolute;left:-5px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:1px solid var(--cyan)}
-  .timeline li.now::before{background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
-  .timeline .when{font:500 12px/1 "IBM Plex Mono",monospace;color:var(--dim);letter-spacing:.06em}
-  .timeline h3{font:500 17px/1.35 Inter,sans-serif;margin:8px 0 3px}
-  .timeline p{font-size:14px;color:var(--dim)}
-  .pubs{list-style:none;counter-reset:p}
-  .pubs li{counter-increment:p;display:grid;grid-template-columns:44px 1fr;gap:6px;padding:16px 0;border-top:1px solid var(--line)}
-  .pubs li::before{content:counter(p,decimal-leading-zero);font:500 12px/1.9 "IBM Plex Mono",monospace;color:var(--violet)}
-  .pubs .t{font-size:15px;color:var(--ink)}.pubs .t a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(93,227,255,.4)}.pubs .t a:hover{color:var(--cyan)}.pubs a.doi{color:var(--cyan);text-decoration:none}.pubs a.doi:hover{text-decoration:underline}
-  .pubs .j{font:400 12.5px/1.6 "IBM Plex Mono",monospace;color:var(--dim);margin-top:4px}
-  .pubs .j b{color:var(--amber);font-weight:500}
-
-  .pubsec{max-width:900px}
-  .pub-h{font:700 clamp(34px,4.4vw,48px)/1.1 Inter,sans-serif;letter-spacing:-.02em;margin-bottom:22px}
-  .pub-search{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;background:rgba(10,12,26,.7);backdrop-filter:blur(8px);padding:0 14px;margin-bottom:8px}
-  .pub-search svg{width:18px;height:18px;fill:none;stroke:var(--dim);stroke-width:2;flex:none}
-  .pub-search input{flex:1;background:none;border:0;color:var(--ink);font:16px Inter,sans-serif;padding:13px 0;outline:none}
-  .pub-search:focus-within{border-color:var(--cyan)}
-  .pub-sub{font:600 20px/1.3 Inter,sans-serif;margin:34px 0 14px;color:var(--ink)}
-  .publist{display:grid;gap:16px}
-  .pcard{border:1px solid var(--line);border-radius:14px;background:rgba(10,12,26,.62);backdrop-filter:blur(10px);padding:24px 28px}
-  .pcard h4{font:700 19px/1.4 Inter,sans-serif;color:var(--ink);margin-bottom:10px}
-  .pcard .au{font-size:14.5px;color:#c6cbe0;line-height:1.55}
-  .pcard .au .me{font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-  .pcard .jr{font-size:14.5px;color:#c6cbe0;margin-top:2px}
-  .pcard .jr i{font-style:italic}
-  .pcard .jr b{font-weight:700;color:var(--ink)}
-  .pcard .vp{display:inline-flex;align-items:center;gap:7px;margin-top:16px;padding:8px 14px;border:1px solid rgba(255,255,255,.18);border-radius:8px;color:var(--ink);text-decoration:none;font:500 14px Inter,sans-serif;transition:border-color .2s,color .2s}
-  .pcard .vp:hover{border-color:var(--cyan);color:var(--cyan)}
-  .pcard .vp svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
-  .pcard .tag{display:inline-block;margin-top:16px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;font:500 13px Inter,sans-serif;color:var(--dim)}
-  .pub-none{color:var(--dim);margin-top:16px}
-  .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-  .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--cyan);padding-bottom:2px}
-  .contact a:hover{color:var(--cyan)}
-  .contact .row{display:flex;flex-wrap:wrap;gap:30px;margin-top:24px;font:500 14px/1.6 "IBM Plex Mono",monospace}
-  .contact .row div span{display:block;font-size:11px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;margin-bottom:6px}
-  footer{position:relative;z-index:2;padding:40px 6vw;font:400 12px/1 "IBM Plex Mono",monospace;color:var(--dim)}
-  .hud{position:fixed;right:4vw;bottom:28px;z-index:3;font:400 11px/1.7 "IBM Plex Mono",monospace;color:var(--dim);text-align:right;pointer-events:none}
-  .hud b{color:var(--cyan);font-weight:500}
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (max-width:760px){
-    nav .links{display:none}
-    .veil{background:linear-gradient(180deg,rgba(5,6,13,.35),rgba(5,6,13,.85))}
-    .hud{display:none}
-  }
-  @media (prefers-reduced-motion:reduce){ .reveal{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
-</style>
-<script type="importmap">
-{ "imports": {
-  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-} }
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 48 48' aria-hidden='true'%3E%3Cg fill='none' stroke='%232ef3f5' stroke-width='2.4' stroke-linejoin='round'%3E%3Cpath d='M24 4 41.3 14v20L24 44 6.7 34V14Z'/%3E%3Ccircle cx='24' cy='24' r='8.5'/%3E%3C/g%3E%3Cg fill='%232ef3f5'%3E%3Ccircle cx='24' cy='4' r='3.2'/%3E%3Ccircle cx='41.3' cy='34' r='3.2'/%3E%3C/g%3E%3C/svg%3E">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
 </head>
 <body>
-<canvas id="scene" aria-hidden="true"></canvas>
-<div class="veil"></div>
-
-<nav>
-  <a class="mark" href="#top">S<span>·</span>Singh</a>
-  <div class="links">
-    <a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#team">Team</a><a href="#contact">Contact</a>
-  </div>
-</nav>
-
-
+<header class="hdr">
+  <a class="brand" href="index.html" aria-label="Dr. Sanjay Singh, home"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#2ef3f5" stroke-width="2.4" stroke-linejoin="round"><path d="M24 4 41.3 14v20L24 44 6.7 34V14Z"/><circle cx="24" cy="24" r="8.5"/></g><g fill="#2ef3f5"><circle cx="24" cy="4" r="3.2"/><circle cx="41.3" cy="34" r="3.2"/></g></svg><span><span class="t1">Pandit Deendayal Energy University</span><span class="t2">Sanjay Singh</span></span></a>
+  <nav class="nav" aria-label="Main"><a href="about.html">About</a><a href="research.html">Research</a><a href="members.html">Members</a><a href="publication.html">Publication</a><a href="news.html">News</a><a href="access.html">Access</a></nav>
+  <button class="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+<aside class="follow" aria-label="Links"><span class="lbl">Follow</span><span class="bar"></span><a href="https://orcid.org/0000-0003-1244-5675" target="_blank" rel="noopener" aria-label="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8.5 10v6M8.5 7.4v.2M11.5 16V8h2.2a4 4 0 0 1 0 8z"/></svg></a><a href="mailto:sanjaychem156@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></a></aside>
 <main>
-  <section id="top">
-    <div class="eyebrow">Assistant Professor of Chemistry · PDEU, Gandhinagar</div>
-    <h1>Dr. Sanjay Singh</h1>
-    <p class="lede">Synthetic organic chemist. Research interests include asymmetric organocatalysis, visible-light photoredox and energy-transfer catalysis, and the stereoselective synthesis of drug-relevant scaffolds.</p>
-    <div class="meta">
-      <span class="chip">Drug discovery</span><span class="chip">Sustainable organic synthesis</span><span class="chip">Photoredox catalysis</span><span class="chip">Asymmetric organocatalysis</span>
-    </div>
-    
-  </section>
+<section class="hero" aria-label="Introduction">
+  <span class="blk b1"></span><span class="blk b2"></span>
+  <div class="pnl main" role="img" aria-label="Animated 3D model of a chiral pentafulvene molecule absorbing light"><img class="fallback" src="img/macro.jpg" alt=""></div>
+  <div class="pnl right"><img src="img/mirror.jpg" alt=""></div>
+  <div class="pnl leftb"><img src="img/lattice.jpg" alt=""></div>
+  <p class="sub">Assistant Professor <span>·</span> Department of Chemistry, PDEU</p>
+  <h1 class="name n1">Sanjay</h1><span class="name n2" aria-hidden="true">Singh</span>
+  <a class="down" href="#about" aria-label="Scroll down"><svg viewBox="0 0 24 40"><path d="M12 2v34M3 27l9 9 9-9"/></svg></a>
+</section>
 
-  <section id="about">
-    <div class="eyebrow reveal">About</div>
-    <h2 class="reveal">Biography</h2>
-    <p class="reveal">Dr. Sanjay Singh is an Assistant Professor in the Department of Chemistry at Pandit Deendayal Energy University (PDEU), Gandhinagar, Gujarat, India. His research focuses on drug discovery and sustainable organic synthesis. He received his Ph.D. in Organic Chemistry from the Indian Institute of Technology Delhi under the supervision of Prof. Ravi P. Singh, and subsequently carried out postdoctoral research on photoredox and energy-transfer catalysis with Prof. Sungwoo Hong at the IBS Center for Catalytic Hydrocarbon Functionalizations (CCHF), KAIST, South Korea.</p>
-    <ul class="timeline" style="margin-top:36px">
-      <li class="now reveal"><div class="when">Present</div><h3>Assistant Professor, Chemistry · PDEU</h3><p>Drug discovery and sustainable organic synthesis. Pandit Deendayal Energy University (formerly PDPU), Gandhinagar, Gujarat, India.</p></li>
-      <li class="reveal"><div class="when">From Dec 2024</div><h3>Postdoctoral Researcher · IBS CCHF / KAIST</h3><p>Photoredox and energy-transfer catalysis with Prof. Sungwoo Hong. Korea Advanced Institute of Science and Technology, Daejeon, South Korea.</p></li>
-      <li class="reveal"><div class="when">Aug 2024 to Dec 2024</div><h3>Assistant Professor (Ad hoc) · PDEU</h3><p>Drug discovery and sustainable organocatalysis. Gandhinagar, Gujarat, India.</p></li>
-      <li class="reveal"><div class="when">Jul 2024</div><h3>Visiting Faculty · PDEU</h3><p>Pandit Deendayal Energy University, Gandhinagar, Gujarat, India.</p></li>
-      <li class="reveal"><div class="when">Feb 2024 to Jul 2024</div><h3>Research Associate · IIT Delhi</h3><p>Peptide-based organocatalysts for enantioselective annulation reactions, with Prof. Ravi P. Singh.</p></li>
-      <li class="reveal"><div class="when">Nov 2023 to Feb 2024</div><h3>Early Postdoctoral Fellow · IIT Delhi</h3><p>With Prof. Ravi P. Singh, Indian Institute of Technology Delhi, New Delhi.</p></li>
-      <li class="reveal"><div class="when">Jan 2017 to Nov 2023</div><h3>Ph.D., Organic Chemistry · IIT Delhi</h3><p>Asymmetric vinylogous reactions and organocatalysis, with Prof. Ravi P. Singh.</p></li>
-    </ul>
-  </section>
+<section class="wrap blockrow" id="about">
+  <h2 class="label">About</h2>
+  <p class="statement rv">Building chiral molecules <span class="g">with</span> light <span class="g">and</span> organic catalysts <span class="g">for</span> drug discovery</p>
+  <a class="pill rv" href="about.html">View more</a>
+</section>
+<div class="wide rv"><img src="img/about.jpg" alt="" loading="lazy"></div>
+<div class="marquee" aria-hidden="true"><div>Asymmetric Synthesis&nbsp;&nbsp;Asymmetric Synthesis&nbsp;&nbsp;</div></div>
 
-  <section id="research">
-    <div class="eyebrow reveal">Research</div>
-    <h2 class="reveal">Research Interests</h2>
-    <div class="grid">
-      <div class="card reveal"><h3>Drug Discovery</h3><p>Stereoselective routes to bioactive scaffolds such as α-carboline alkaloids, coumarins and oxindoles.</p></div>
-      <div class="card reveal"><h3>Sustainable Organic Synthesis</h3><p>Recyclable catalytic systems and metal-free organocatalysis for cleaner C–H and C–C bond formation.</p></div>
-      <div class="card reveal"><h3>Photoredox and Energy-Transfer Catalysis</h3><p>Visible-light, LMCT and triplet energy-transfer catalysis, including strain-release [2π + 2σ] cycloadditions to oxa-spiro bicyclohexanes.</p></div>
-      <div class="card reveal"><h3>Asymmetric Organocatalysis</h3><p>Thioureas, squaramides, peptides and chiral phosphoric acids for vinylogous reactions, desymmetrizing annulations and chiral pentafulvenes for bioimaging.</p></div>
-    </div>
-  </section>
+<section class="wrap blockrow" style="padding-top:60px">
+  <h2 class="label">Research</h2>
+  <p class="statement rv">Organic synthesis <span class="g">through</span> photocatalysis, organocatalysis <span class="g">and</span> sustainable methods</p>
+  <a class="pill rv" href="research.html">View more</a>
+</section>
+<div class="cards">
+  <a class="card rv" href="research.html#photocatalysis"><div class="ph"><img src="img/light.jpg" alt="" loading="lazy"></div><h3>Photocatalysis</h3></a>
+  <a class="card rv" href="research.html#organocatalysis"><div class="ph"><img src="img/mirror.jpg" alt="" loading="lazy"></div><h3>Organocatalysis</h3></a>
+  <a class="card rv" href="research.html#drug-discovery"><div class="ph"><img src="img/drug.jpg" alt="" loading="lazy"></div><h3>Drug Discovery</h3></a>
+</div>
 
-  <section id="publications" class="pubsec">
-    <h2 class="pub-h reveal">Publications</h2>
-    <div class="pub-search reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="pubq" type="search" placeholder="Search by title, author or journal..." aria-label="Search publications"></div>
-    <h3 class="pub-sub">Journal Articles</h3>
-    <div id="publist" class="publist"></div>
-    <h3 class="pub-sub">Patents</h3>
-    <div id="patlist" class="publist"></div>
-    <p id="pubnone" class="pub-none" hidden>No publications match your search.</p>
-  </section>
-
-  <section id="team" style="min-height:50vh">
-    <div class="eyebrow reveal">Team</div>
-    <h2 class="reveal">Research Group</h2>
-    <p class="reveal">Coming soon.</p>
-  </section>
-
-  <section id="contact" class="contact">
-    
-    <h2 class="reveal">Contact</h2>
-    <p class="reveal">Enquiries regarding research collaboration, student positions and academic matters are welcome.</p>
-    <div class="row reveal">
-      <div><span>Email</span><a href="mailto:sanjaychem156@gmail.com">sanjaychem156@gmail.com</a></div>
-      <div><span>ORCID</span><a href="https://orcid.org/0000-0003-1244-5675" target="_blank" rel="noopener">0000-0003-1244-5675</a></div>
-      <div><span>Department</span>Chemistry, PDEU · Gandhinagar, Gujarat</div>
-    </div>
-  </section>
+<section class="newsband"><div class="wrap">
+  <h2 class="label">News</h2>
+  <ul class="nlist"><li class="nitem rv"><a href="https://doi.org/10.1126/sciadv.aeh7873" target="_blank" rel="noopener"><span class="date"><b>28</b>Oct. 2026</span><span class="th"><img src="img/light.jpg" alt="" loading="lazy"></span><span><h3>Published in Science Advances</h3><p>Visible-light-mediated stereoselective construction of oxa-spiro bicyclohexanes via strain-release [2π + 2σ] cycloaddition.</p></span></a></li><li class="nitem rv"><a href="https://doi.org/10.1002/chem.202503316" target="_blank" rel="noopener"><span class="date"><b>30</b>Dec. 2025</span><span class="th"><img src="img/drug.jpg" alt="" loading="lazy"></span><span><h3>Published in Chemistry: A European Journal</h3><p>Catalytic asymmetric functionalization of 4-methylcoumarins: a vinylogous nucleophile perspective.</p></span></a></li><li class="nitem rv"><a href="https://doi.org/10.1038/s41467-024-45346-4" target="_blank" rel="noopener"><span class="date"><b>07</b>Mar. 2024</span><span class="th"><img src="img/macro.jpg" alt="" loading="lazy"></span><span><h3>Published in Nature Communications</h3><p>Desymmetric homologating annulation to access chiral pentafulvenes and their application in bioimaging.</p></span></a></li></ul>
+  <div class="center"><a class="pill" href="news.html">View more</a></div>
+</div></section>
+<section class="wrap ca">
+  <div class="rv"><h2 class="label">Contact</h2><p>Dr. Sanjay Singh</p><p>Email: <a href="mailto:sanjaychem156@gmail.com">sanjaychem156@gmail.com</a></p><p>ORCID: <a href="https://orcid.org/0000-0003-1244-5675" target="_blank" rel="noopener">0000-0003-1244-5675</a></p></div>
+  <div class="rv"><h2 class="label">Access</h2><p>Department of Chemistry, School of Energy Technology, Pandit Deendayal Energy University</p><div class="row"><p>Knowledge Corridor, Raisan Village, Gandhinagar 382426, Gujarat, India</p><a class="pill" href="access.html">View more</a></div></div>
+</section>
 </main>
-<footer>© <span id="yr"></span> Dr. Sanjay Singh · Department of Chemistry, PDEU</footer>
-
-<script>
-{
-const ME='Singh, S.';
-const pubs=[
- {n:null,t:'Stereoselective Synthesis of 3-Carboxamidecoumarins Tethered α-Trifluoromethyl Styrenes',a:['Singh, S.','Singh, R. P.*'],status:'Submitted'},
- {n:9,t:'Visible-light-mediated stereoselective construction of oxa-spiro bicyclohexanes via strain-release [2π + 2σ] cycloaddition',a:['Singh, S.','Kim, C.','Lee, D.','Kim, D.','Hong, S.*'],j:'Sci. Adv.',y:2026,v:'12',pg:'eaeh7873',u:'https://doi.org/10.1126/sciadv.aeh7873'},
- {n:8,t:'Catalytic Asymmetric Functionalization of 4-Methylcoumarins: A Vinylogous Nucleophile Perspective',a:['Singh, S.','Singh, A.','Singh, R. P.*'],j:'Chem. Eur. J.',y:2026,v:'32',pg:'e03316',u:'https://doi.org/10.1002/chem.202503316'},
- {n:7,t:'Green innovations in C–H bond functionalisation: exploring homogeneous recyclable catalytic systems',a:['Deshmukh, D. S.','Singh, S.','Badgujar, K. C.','Humne, V. T.','Korpe, G. V.','Bhanage, B. M.*'],j:'Green Chem.',y:2025,v:'27',pg:'5667',u:'https://doi.org/10.1039/D5GC00278H'},
- {n:6,t:'Unlocking Thermodynamic Enolate for Kinetically Controlled Desymmetrizing Vinylogous (4+1) Carbospiroannulation',a:['Singh, S.','Singh, A.','Pandya, R.','Vanka, K.','Singh, R. P.*'],j:'Chem. Eur. J.',y:2025,v:'31',pg:'e202500671',u:'https://doi.org/10.1002/chem.202500671'},
- {n:5,t:'Desymmetric homologating annulation to access chiral pentafulvenes and their application in bioimaging',a:['Singh, S.','Saini, R.','Joshi, A.','Singh, N.*','Singh, R. P.*'],j:'Nat. Commun.',y:2024,v:'15',pg:'2101',u:'https://doi.org/10.1038/s41467-024-45346-4'},
- {n:4,t:'Enantioselective Distal Functionalization of 3-Cyano-4-methylcoumarins through Direct Vinylogous Conjugate Addition to Maleimides',a:['Singh, S.','Saini, R.','Singh, R. P.*'],j:'J. Org. Chem.',y:2023,v:'88',pg:'7712',u:'https://doi.org/10.1021/acs.joc.2c02142'},
- {n:3,t:'Enamine/Iminium-Based Dual Organocatalytic Systems for Asymmetric Catalysis and Synthesis',a:['Gambhir, D.','Singh, S.','Singh, R. P.*'],j:'Chem. Asian J.',y:2023,v:'18',pg:'e202300627',u:'https://doi.org/10.1002/asia.202300627'},
- {n:2,t:'Enantioselective vinylogous aldol reaction of acylphosphonates with 3-alkylidene oxindoles',a:['Jaiswal, M. K.','Singh, S.','Singh, R. P.*'],j:'Org. Biomol. Chem.',y:2021,v:'19',pg:'7861',u:'https://doi.org/10.1039/D1OB00140J'},
- {n:1,t:'The Vinylogous Michael Addition of 3-Alkylidene-2-oxindoles to β,γ-Unsaturated α-Keto Esters by Bifunctional Cinchona Alkaloids',a:['Jaiswal, M. K.','Kumar, R.','Singh, S.','Jain, S.','Vanka, K.','Singh, R. P.*'],j:'Eur. J. Org. Chem.',y:2020,pg:'5690',u:'https://doi.org/10.1002/ejoc.202000835'}
-];
-const pats=[
- {n:'P2',t:'Stereoselective Synthesis of Novel α-Carboline Alkaloids',a:['Sevak, P.','Pandey, M. K.','Singh, S.*'],j:'Indian Patent Application (IOPA)',no:'N2024-21103076'},
- {n:'P1',t:'Asymmetric Synthesis of Highly Substituted Polycyclic Amino Penta-Fulvenes',a:['Singh, S.','Singh, R. P.*'],j:'Indian Patent Application (IOPA)',no:'202311045944'}
-];
-const ext='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
-const au=a=>a.map(x=>x.replace(/\*$/,'')===ME?`<span class="me">${x}</span>`:x).join('; ');
-const card=p=>{
-  const num=p.n!=null?`[${p.n}] `:'';
-  let jr='';
-  if(p.status) jr=`<div class="jr"><i>${p.status}</i></div>`;
-  else if(p.no) jr=`<div class="jr"><i>${p.j}</i> No. ${p.no}</div>`;
-  else jr=`<div class="jr"><i>${p.j}</i> <b>${p.y}</b>${p.v?`, <i>${p.v}</i>`:''}, ${p.pg}.</div>`;
-  const btn=p.u?`<a class="vp" href="${p.u}" target="_blank" rel="noopener">${ext}View Paper</a>`:(p.no?'<span class="tag">Patent</span>':'');
-  return `<article class="pcard" data-s="${(p.t+' '+p.a.join(' ')+' '+(p.j||'')+' '+(p.y||'')).toLowerCase().replace(/"/g,'')}"><h4>${num}${p.t}</h4><div class="au">${au(p.a)}</div>${jr}${btn}</article>`;
-};
-document.getElementById('publist').innerHTML=pubs.map(card).join('');
-document.getElementById('patlist').innerHTML=pats.map(card).join('');
-const q=document.getElementById('pubq');
-q.addEventListener('input',()=>{
-  const v=q.value.trim().toLowerCase(); let shown=0;
-  document.querySelectorAll('.pcard').forEach(c=>{const ok=!v||c.dataset.s.includes(v); c.hidden=!ok; if(ok) shown++;});
-  document.querySelectorAll('.pub-sub').forEach(h=>{const list=h.nextElementSibling; h.hidden=![...list.children].some(c=>!c.hidden);});
-  document.getElementById('pubnone').hidden=shown>0;
-});
-}
-</script>
-<script type="module">
-import * as THREE from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
-import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-
-document.getElementById('yr').textContent = new Date().getFullYear();
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const mobile = innerWidth < 760;
-
-// ---------- renderer / scene ----------
-const canvas = document.getElementById('scene');
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.setSize(innerWidth, innerHeight);
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.0;
-
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x05060d);
-scene.fog = new THREE.FogExp2(0x05060d, 0.012);
-const pmrem = new THREE.PMREMGenerator(renderer);
-scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-
-const camera = new THREE.PerspectiveCamera(38, innerWidth / innerHeight, 0.1, 200);
-camera.position.set(0, 0, 16);
-
-const key = new THREE.DirectionalLight(0xbcd0ff, 1.6); key.position.set(5, 6, 8); scene.add(key);
-const rim = new THREE.PointLight(0x6a5bff, 40, 30); rim.position.set(-6, -2, -4); scene.add(rim);
-const ledLight = new THREE.PointLight(0x4f7dff, 0, 20); scene.add(ledLight);
-scene.add(new THREE.AmbientLight(0x223055, 0.6));
-
-// ---------- molecule builder (stylized aminopentafulvene with aryl + ester groups) ----------
-const ELEM = {
-  C: { r: .34, c: 0x2b2f3d, m: .15, rough: .35 },
-  N: { r: .33, c: 0x3d6bff, m: .1,  rough: .3 },
-  O: { r: .32, c: 0xff4d5e, m: .1,  rough: .3 },
-  H: { r: .2,  c: 0xe8ecf6, m: 0,   rough: .45 },
-};
-const atoms = []; const bonds = [];
-const V = (x, y, z) => new THREE.Vector3(x, y, z);
-function atom(el, p) { atoms.push({ el, p }); return atoms.length - 1; }
-function bond(a, b, order = 1) { bonds.push({ a, b, order }); }
-function ringAtoms(n, center, radius, u, v, startAngle = 0, el = 'C') {
-  const ids = [];
-  for (let i = 0; i < n; i++) {
-    const t = startAngle + i * Math.PI * 2 / n;
-    ids.push(atom(el, center.clone().addScaledVector(u, Math.cos(t) * radius).addScaledVector(v, Math.sin(t) * radius)));
-  }
-  return ids;
-}
-function phenyl(anchorId, dir, twist) {
-  const a = atoms[anchorId].p; dir = dir.clone().normalize();
-  const c = a.clone().addScaledVector(dir, 1.5 + 1.4);
-  let u = dir.clone().negate();
-  let w = new THREE.Vector3(0, 0, 1); if (Math.abs(w.dot(u)) > .9) w.set(0, 1, 0);
-  let v = new THREE.Vector3().crossVectors(u, w).normalize();
-  v.applyAxisAngle(u, twist);
-  const ids = ringAtoms(6, c, 1.4, u, v, 0);
-  bond(anchorId, ids[0]);
-  ids.forEach((id, i) => bond(id, ids[(i + 1) % 6], i % 2 ? 1 : 2));
-  ids.slice(1).forEach(id => {
-    const d = atoms[id].p.clone().sub(c).normalize();
-    bond(id, atom('H', atoms[id].p.clone().addScaledVector(d, 1.05)));
-  });
-  return ids;
-}
-function methyl(anchorId, dir) {
-  const p = atoms[anchorId].p.clone().addScaledVector(dir.clone().normalize(), 1.47);
-  const cid = atom('C', p); bond(anchorId, cid);
-  const d = dir.clone().normalize();
-  let w = Math.abs(d.y) < .9 ? V(0, 1, 0) : V(1, 0, 0);
-  const u1 = new THREE.Vector3().crossVectors(d, w).normalize(), u2 = new THREE.Vector3().crossVectors(d, u1);
-  for (let i = 0; i < 3; i++) {
-    const t = i * 2 * Math.PI / 3;
-    const hd = d.clone().multiplyScalar(.35).addScaledVector(u1, Math.cos(t) * .94).addScaledVector(u2, Math.sin(t) * .94).normalize();
-    bond(cid, atom('H', p.clone().addScaledVector(hd, 1.05)));
-  }
-  return cid;
-}
-// fulvene core
-const X = V(1, 0, 0), Y = V(0, 1, 0);
-const ring = ringAtoms(5, V(0, 0, 0), 1.2, X, Y, Math.PI); // ring[0] at -x
-[[0,1,1],[1,2,2],[2,3,1],[3,4,2],[4,0,1]].forEach(([a,b,o]) => bond(ring[a], ring[b], o));
-const c6 = atom('C', V(-1.2 - 1.36, 0, 0)); bond(ring[0], c6, 2);
-const n = atom('N', V(-3.3, 1.2, .2)); bond(c6, n);
-methyl(n, V(-.6, .9, .7)); methyl(n, V(.2, .8, -.9));
-phenyl(c6, V(-.55, -1, .15), .9);
-const outward = i => atoms[ring[i]].p.clone().normalize();
-phenyl(ring[2], outward(2), .6);
-phenyl(ring[3], outward(3), -.7);
-// ester on ring[1]
-const ce = atom('C', atoms[ring[1]].p.clone().addScaledVector(outward(1), 1.48)); bond(ring[1], ce);
-const o1 = atom('O', atoms[ce].p.clone().add(V(-.9, .75, .3))); bond(ce, o1, 2);
-const o2 = atom('O', atoms[ce].p.clone().add(V(.9, .7, -.3))); bond(ce, o2);
-methyl(o2, V(.8, .5, -.5));
-bond(ring[4], atom('H', atoms[ring[4]].p.clone().addScaledVector(outward(4), 1.08)));
-
-// center the molecule
-const centroid = new THREE.Vector3(); atoms.forEach(a => centroid.add(a.p)); centroid.divideScalar(atoms.length);
-atoms.forEach(a => a.p.sub(centroid));
-
-function buildMolecule(mirror = false, ghost = false) {
-  const g = new THREE.Group();
-  const mats = {};
-  for (const [el, d] of Object.entries(ELEM)) {
-    mats[el] = ghost
-      ? new THREE.MeshBasicMaterial({ color: 0x7f9bff, transparent: true, opacity: 0, wireframe: true, depthWrite: false })
-      : new THREE.MeshPhysicalMaterial({ color: d.c, metalness: d.m, roughness: d.rough, clearcoat: 1, clearcoatRoughness: .15, emissive: new THREE.Color(0x3a5cff), emissiveIntensity: 0 });
-  }
-  const sphereGeo = new THREE.SphereGeometry(1, ghost ? 10 : 40, ghost ? 8 : 28);
-  const atomMeshes = [];
-  atoms.forEach(({ el, p }) => {
-    const m = new THREE.Mesh(sphereGeo, mats[el]);
-    m.position.copy(p); if (mirror) m.position.x *= -1;
-    m.scale.setScalar(ELEM[el].r * (ghost ? 1.05 : 1));
-    m.userData.base = m.scale.x; m.userData.el = el;
-    g.add(m); atomMeshes.push(m);
-  });
-  const bondMat = ghost ? mats.C : new THREE.MeshPhysicalMaterial({ color: 0x9aa3bd, metalness: .6, roughness: .25, clearcoat: 1, emissive: new THREE.Color(0x3a5cff), emissiveIntensity: 0 });
-  const cyl = new THREE.CylinderGeometry(.075, .075, 1, ghost ? 6 : 14);
-  const up = V(0, 1, 0);
-  bonds.forEach(({ a, b, order }) => {
-    const pa = atomMeshes[a].position, pb = atomMeshes[b].position;
-    const dir = pb.clone().sub(pa); const len = dir.length(); dir.normalize();
-    const q = new THREE.Quaternion().setFromUnitVectors(up, dir);
-    let off = new THREE.Vector3().crossVectors(dir, camera.position.clone().normalize()).normalize();
-    if (off.lengthSq() < .01) off.set(0, 0, 1);
-    const offsets = order === 2 ? [-.11, .11] : [0];
-    offsets.forEach(o => {
-      const m = new THREE.Mesh(cyl, bondMat);
-      m.position.copy(pa).add(pb).multiplyScalar(.5).addScaledVector(off, o);
-      m.quaternion.copy(q); m.scale.set(order === 2 ? .8 : 1, len, order === 2 ? .8 : 1);
-      g.add(m);
-    });
-  });
-  g.userData = { mats, bondMat, atomMeshes };
-  return g;
-}
-
-const stage = new THREE.Group(); scene.add(stage);
-const mol = buildMolecule(false, false); stage.add(mol);
-const enant = buildMolecule(true, true); stage.add(enant);
-
-// mirror plane (chirality)
-const mirrorMat = new THREE.ShaderMaterial({
-  transparent: true, depthWrite: false, side: THREE.DoubleSide,
-  uniforms: { uOp: { value: 0 }, uT: { value: 0 } },
-  vertexShader: `varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
-  fragmentShader: `varying vec2 vUv; uniform float uOp; uniform float uT;
-    void main(){ vec2 c=vUv-.5; float edge=smoothstep(.5,.2,max(abs(c.x),abs(c.y)));
-      float lines=smoothstep(.96,1.,sin((vUv.y+uT*.05)*160.)*.5+.5)*.35;
-      gl_FragColor=vec4(vec3(.36,.55,1.)*(.12+lines),(.18+lines)*edge*uOp); }`
-});
-const mirror = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), mirrorMat);
-mirror.rotation.y = Math.PI / 2; stage.add(mirror);
-
-// excited-state halo
-const haloMat = new THREE.ShaderMaterial({
-  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-  uniforms: { uI: { value: 0 }, uC: { value: new THREE.Color(0x4f7dff) } },
-  vertexShader: `varying vec3 vN; varying vec3 vV; void main(){ vec4 mv=modelViewMatrix*vec4(position,1.); vN=normalize(normalMatrix*normal); vV=normalize(-mv.xyz); gl_Position=projectionMatrix*mv; }`,
-  fragmentShader: `varying vec3 vN; varying vec3 vV; uniform float uI; uniform vec3 uC;
-    void main(){ float f=pow(1.-abs(dot(vN,vV)),3.); gl_FragColor=vec4(uC*f*uI*1.6,f*uI); }`
-});
-const halo = new THREE.Mesh(new THREE.SphereGeometry(5.2, 48, 32), haloMat); stage.add(halo);
-stage.scale.setScalar(.78);
-
-// LED source + photons
-const led = new THREE.Mesh(new THREE.SphereGeometry(.22, 24, 16), new THREE.MeshBasicMaterial({ color: new THREE.Color(2.5, 3.2, 6), toneMapped: false, fog: false }));
-scene.add(led);
-const PH = mobile ? 40 : 90;
-const photonGeo = new THREE.BufferGeometry();
-const pPos = new Float32Array(PH * 3), pSize = new Float32Array(PH);
-photonGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
-photonGeo.setAttribute('aSize', new THREE.BufferAttribute(pSize, 1));
-const glowMat = (color) => new THREE.ShaderMaterial({
-  transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
-  uniforms: { uC: { value: new THREE.Color(color) }, uPR: { value: renderer.getPixelRatio() } },
-  vertexShader: `attribute float aSize; uniform float uPR; void main(){ vec4 mv=modelViewMatrix*vec4(position,1.); gl_PointSize=aSize*uPR*(60./-mv.z); gl_Position=projectionMatrix*mv; }`,
-  fragmentShader: `uniform vec3 uC; void main(){ float d=length(gl_PointCoord-.5); float a=smoothstep(.5,0.,d); gl_FragColor=vec4(uC*a*1.8,a); }`
-});
-const photons = new THREE.Points(photonGeo, glowMat(0x6f95ff)); scene.add(photons);
-const photonState = Array.from({ length: PH }, () => ({ t: Math.random(), speed: .25 + Math.random() * .35, wob: Math.random() * 10, target: 0, active: Math.random() < .5 }));
-
-// emission sparks (energy released after absorption)
-const SP = 160; const sPos = new Float32Array(SP * 3), sSize = new Float32Array(SP);
-const sparkGeo = new THREE.BufferGeometry();
-sparkGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
-sparkGeo.setAttribute('aSize', new THREE.BufferAttribute(sSize, 1));
-const sparks = new THREE.Points(sparkGeo, glowMat(0x5de3ff)); scene.add(sparks);
-const sparkState = Array.from({ length: SP }, () => ({ life: 0, v: new THREE.Vector3(), p: new THREE.Vector3() }));
-let sparkIdx = 0;
-
-// dust field
-const DUST = mobile ? 500 : 1400; const dPos = new Float32Array(DUST * 3), dSize = new Float32Array(DUST);
-for (let i = 0; i < DUST; i++) { dPos[i*3] = (Math.random()-.5)*60; dPos[i*3+1] = (Math.random()-.5)*40; dPos[i*3+2] = -Math.random()*40 + 6; dSize[i] = Math.random()*1.4 + .3; }
-const dustGeo = new THREE.BufferGeometry();
-dustGeo.setAttribute('position', new THREE.BufferAttribute(dPos, 3));
-dustGeo.setAttribute('aSize', new THREE.BufferAttribute(dSize, 1));
-const dust = new THREE.Points(dustGeo, glowMat(0x2a3670)); scene.add(dust);
-
-// ---------- post ----------
-const composer = new EffectComposer(renderer);
-composer.addPass(new RenderPass(scene, camera));
-const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), .6, .5, .55);
-composer.addPass(bloom);
-composer.addPass(new OutputPass());
-
-// ---------- scroll choreography ----------
-let scrollT = 0, smooth = 0;
-const onScroll = () => { const max = document.documentElement.scrollHeight - innerHeight; scrollT = max > 0 ? scrollY / max : 0; };
-addEventListener('scroll', onScroll, { passive: true }); onScroll();
-const mouse = new THREE.Vector2(); let mx = 0, my = 0;
-addEventListener('pointermove', e => { mouse.set(e.clientX / innerWidth - .5, e.clientY / innerHeight - .5); });
-
-// keyframes: [scroll, stageX, stageY, camZ, rotSpeed, mirror]
-const KF = [
-  [0.00, 4.2, 0.0, 16, .12, 0],
-  [0.14, 4.6, 0.3, 14, .18, 0],
-  [0.30, 3.6, 0.0, 18, .10, 1],
-  [0.50, 4.8, 0.4, 15, .14, 0],
-  [0.82, 4.2, 0.0, 17, .08, 0],
-  [1.00, 3.4, 0.0, 19, .06, 0],
-];
-function sample(t) {
-  for (let i = 0; i < KF.length - 1; i++) {
-    const a = KF[i], b = KF[i + 1];
-    if (t <= b[0]) { const k = (t - a[0]) / (b[0] - a[0]); const s = k * k * (3 - 2 * k); return a.map((v, j) => v + (b[j] - v) * s); }
-  }
-  return KF[KF.length - 1];
-}
-
-const reveals = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .15 });
-document.querySelectorAll('.reveal').forEach(el => reveals.observe(el));
-
-// ---------- loop ----------
-const clock = new THREE.Clock();
-let excite = 0, hvCount = 0, rot = 0;
-
-const tmp = new THREE.Vector3();
-
-function emit(at) {
-  for (let k = 0; k < 6; k++) {
-    const s = sparkState[sparkIdx++ % SP];
-    s.life = 1; s.p.copy(at);
-    s.v.set(Math.random() - .5, Math.random() - .5, Math.random() - .5).normalize().multiplyScalar(2 + Math.random() * 3);
-  }
-}
-
-function frame() {
-  const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
-  smooth += (scrollT - smooth) * Math.min(1, dt * 4);
-  mx += (mouse.x - mx) * dt * 2; my += (mouse.y - my) * dt * 2;
-  let [, sx, sy, cz, rs, mir] = sample(smooth);
-  if (mobile) { sx = 0; sy = 2.5; cz += 6; }
-
-  stage.position.set(sx, sy, 0);
-  rot += dt * (reduce ? rs * .3 : rs);
-  mol.rotation.set(Math.sin(t * .2) * .25 + my * .4, rot + mx * .6, Math.cos(t * .15) * .1);
-  enant.rotation.set(mol.rotation.x, -mol.rotation.y, -mol.rotation.z);
-  enant.position.x = THREE.MathUtils.lerp(0, -9.5, mir);
-  mol.position.x = THREE.MathUtils.lerp(0, 1.5, mir);
-  Object.values(enant.userData.mats).forEach(m => m.opacity = mir * .32);
-  mirrorMat.uniforms.uOp.value = mir; mirrorMat.uniforms.uT.value = t;
-  mirror.position.x = THREE.MathUtils.lerp(0, -4, mir);
-  camera.position.set(mx * 1.2, -my * .8, cz); camera.lookAt(sx * .55, sy * .6, 0);
-
-  // LED orbits upper-left of molecule
-  const ledPos = tmp.set(sx + 3.5 + Math.sin(t * .3) * .6, sy + 4.2 + Math.cos(t * .4) * .4, 2);
-  led.position.copy(ledPos); ledLight.position.copy(ledPos); ledLight.intensity = 30 + Math.sin(t * 6) * 4;
-
-  // photons travel LED -> random atom
-  const meshes = mol.userData.atomMeshes;
-  for (let i = 0; i < PH; i++) {
-    const s = photonState[i];
-    if (!s.active) { if (Math.random() < dt * .12) { s.active = true; s.t = 0; s.target = (Math.random() * meshes.length) | 0; } pSize[i] = 0; continue; }
-    s.t += dt * s.speed * (reduce ? .4 : 1);
-    const tgt = meshes[s.target].getWorldPosition(new THREE.Vector3());
-    const p = ledPos.clone().lerp(tgt, s.t);
-    const wob = Math.sin(s.t * 30 + s.wob) * .18 * (1 - s.t);
-    p.y += wob; p.z += Math.cos(s.t * 30 + s.wob) * .18 * (1 - s.t);
-    pPos.set([p.x, p.y, p.z], i * 3); pSize[i] = 3.2;
-    if (s.t >= 1) {
-      s.active = false; pSize[i] = 0;
-      excite = Math.min(1.4, excite + .12); hvCount++;
-      meshes[s.target].userData.flash = 1;
-      emit(tgt);
-    }
-  }
-  photonGeo.attributes.position.needsUpdate = true; photonGeo.attributes.aSize.needsUpdate = true;
-
-  for (let i = 0; i < SP; i++) {
-    const s = sparkState[i];
-    if (s.life > 0) { s.life -= dt * 1.2; s.p.addScaledVector(s.v, dt); s.v.multiplyScalar(.96); }
-    sPos.set([s.p.x, s.p.y, s.p.z], i * 3); sSize[i] = Math.max(0, s.life) * 2.4;
-  }
-  sparkGeo.attributes.position.needsUpdate = true; sparkGeo.attributes.aSize.needsUpdate = true;
-
-  // excited-state response
-  excite *= Math.pow(.45, dt);
-  const e = Math.min(1, excite);
-  meshes.forEach(m => {
-    const f = m.userData.flash || 0;
-    m.scale.setScalar(m.userData.base * (1 + f * .35));
-    m.userData.flash = f * Math.pow(.02, dt);
-  });
-  Object.values(mol.userData.mats).forEach(m => m.emissiveIntensity = e * .9);
-  mol.userData.bondMat.emissiveIntensity = e * 1.4;
-  haloMat.uniforms.uI.value = e * .35;
-  halo.scale.setScalar(1 + Math.sin(t * 2) * .02);
-  bloom.strength = .55 + e * .5;
-
-
-  dust.rotation.y = t * .01 + mx * .05; dust.position.y = smooth * 6;
-  composer.render();
-  requestAnimationFrame(frame);
-}
-frame();
-
-addEventListener('resize', () => {
-  camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight);
-});
-</script>
+<script type="module" src="js/hero3d.js"></script>
+<footer class="ftr"><div class="wrap">
+  <div><a class="brand" href="index.html"><svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="#2ef3f5" stroke-width="2.4" stroke-linejoin="round"><path d="M24 4 41.3 14v20L24 44 6.7 34V14Z"/><circle cx="24" cy="24" r="8.5"/></g><g fill="#2ef3f5"><circle cx="24" cy="4" r="3.2"/><circle cx="41.3" cy="34" r="3.2"/></g></svg><span><span class="t1">Pandit Deendayal Energy University</span><span class="t2">Sanjay Singh</span></span></a>
+  <div class="fl">Follow: <a href="https://orcid.org/0000-0003-1244-5675" target="_blank" rel="noopener">ORCID ↗</a></div></div>
+  <div class="aff"><span>Department of Chemistry</span><span>School of Energy Technology</span><span>Pandit Deendayal Energy University</span><span>Gandhinagar, Gujarat, India</span></div>
+</div></footer>
+<div class="copy">© <span id="yr">2026</span> Dr. Sanjay Singh. All rights reserved.</div>
+<script src="js/main.js"></script>
 </body>
 </html>
