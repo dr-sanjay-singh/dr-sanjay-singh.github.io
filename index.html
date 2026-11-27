@@ -88,6 +88,15 @@
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s ease}
   .reveal.in{opacity:1;transform:none}
 
+
+  /* one section per page */
+  main > section{display:none;animation:pagein .5s ease both}
+  main > section.active{display:block}
+  main > section:not(.active){display:none!important}
+  main > section#top.active{display:flex}
+  main > section.band{min-height:100vh;padding-top:120px}
+  @keyframes pagein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){main > section{animation:none}}
   /* ===== section system ===== */
   #top{min-height:100vh;padding:120px 6vw 80px;display:flex;flex-direction:column;justify-content:center;max-width:820px}
   .band{position:relative;padding:110px 0 100px;background:rgba(6,7,16,.9);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border-top:1px solid rgba(255,255,255,.06);scroll-margin-top:60px}
@@ -620,12 +629,24 @@ document.querySelectorAll('.reveal').forEach(x=>ro.observe(x));
 
 <script>
 {
+  const pages=[...document.querySelectorAll('main > section')];
+  const ids=pages.map(p=>p.id);
   const links=[...document.querySelectorAll('nav .links a')];
-  const ids=links.map(a=>a.getAttribute('href').slice(1));
-  const set=id=>links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+id));
-  const spy=()=>{let cur=null;for(const id of ids){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=innerHeight*.4)cur=id;}
-    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur='contact';set(cur);};
-  addEventListener('scroll',spy,{passive:true});spy();
+  const show=(instant)=>{
+    const h=decodeURIComponent(location.hash.slice(1));
+    let target=document.getElementById(h);
+    let page=target?target.closest('main > section'):null;
+    if(!page) page=document.getElementById('top');
+    pages.forEach(p=>p.classList.toggle('active',p===page));
+    links.forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+page.id));
+    document.title=(page.id==='top'?'':(page.querySelector('.crumb')?.textContent.trim()+' | '))+'Dr. Sanjay Singh | Department of Chemistry, PDEU';
+    if(target&&target!==page) requestAnimationFrame(()=>target.scrollIntoView({behavior:instant?'auto':'smooth'}));
+    else window.scrollTo({top:0,behavior:'auto'});
+    window.dispatchEvent(new Event('scroll'));
+  };
+  addEventListener('hashchange',()=>show(false));
+  document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&a.getAttribute('href')===location.hash){e.preventDefault();show(false);}});
+  show(true);
 }
 </script>
 <script type="module">
